@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My GitHub Website</title>
+    <meta charset="UTF-8">
+    
+    <style>
+        /* --- GENERAL BODY STYLING --- */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px; 
+            line-height: 1.6;
+            color: #FFFFFF;
+            
+            /* Background Image Styles */
+            background-image: url('/images/background.jpg'); 
+            background-repeat: no-repeat;
+            /* Using 'cover' is generally better than '100% 100%' to avoid stretching */
+            background-size: 100% 100%; 
+            background-position: center top; 
+            background-attachment: fixed; 
+            
+            /* FLEXBOX PROPERTIES */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; 
+        }
+
+        /* --- TOP-RIGHT NAVIGATION BUTTONS STYLING --- */
+        .nav-links-container {
+            position: absolute; 
+            top: 20px; 
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-link {
+            padding: 8px 15px;
+            background-color: #ad480d; /* Button color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+            display: inline-block; 
+        }
+
+        /* Hover effect (mantaining the same color) */
+        .nav-link:hover {
+            background-color: #ca4406; /* Slightly brighter on hover */
+        }
+
+        .profile-image {
+            width: 200px; 
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover; 
+            border: 4px solid #ADD8E6; 
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
+            margin-top: 125px; 
+            margin-bottom: 20px;
+        }
+
+        /* --- MAIN CONTENT STYLING --- */
+        p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+        
+        .full-width-image {
+            display: none;
+        }
+
+        /* Email Link Style */
+        .contact-email a {
+            color: #df6f06; /* Salmon/orange color */
+            text-decoration: none; 
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            transition: color 0.3s ease; 
+        }
+
+        .contact-email a:hover {
+            color: #FFFFFF; 
+            text-decoration: underline; 
+        }
+
+        /* 🚀 NEW: STYLE FOR THE CENTERED MEETING BUTTON */
+        .meeting-button-style {
+            padding: 8px 15px;
+            background-color: #ad480d; /* Matching color with nav links */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px; /* Add space above the button */
+            transition: background-color 0.3s ease;
+            display: inline-block; /* Treat link as a button block */
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .meeting-button-style:hover {
+            background-color: #ca4406; /* Slightly brighter on hover */
+        }
+        .trajectory-list {
+            list-style-type: none; 
+            padding: 0;           
+            
+            /* Centering the block itself (margin auto), but text inside is left */
+            margin: 15px auto 25px auto; 
+            max-width: 700px;
+            
+            /* ✨ CHANGE: Align the list items' text to the left ✨ */
+            text-align: left; 
+            
+            font-size: 1.1em;
+            line-height: 1.7; 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .trajectory-list li {
+            margin-bottom: 5px; 
+            color: #F0F0F0;
+        }
+        .trajectory-header {
+            font-size: 1.5em;
+            color: #df6f06;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+            margin-top: 25px; 
+            margin-bottom: 10px; 
+            text-align: left; 
+            max-width: 700px;
+            width: 100%;
+        }
+        .trajectory-list a {
+            color: #df6f06; /* The salmon/orange color of the email link */
+            text-decoration: none; /* No underline by default */
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            transition: color 0.3s ease;
+        }
+
+        .trajectory-list a:hover {
+            color: #FFFFFF; /* White on hover */
+            text-decoration: underline;
+        }
+
+        .map-container {
+            /* Ensures the map is centered by inheriting the max-width and margin auto */
+            max-width: 700px;
+            width: 90%; /* Use 90% of max-width to look good on smaller screens */
+            margin: 10px auto 40px auto; 
+            border: 2px solid #df6f06; /* Orange border matching your links */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 350px; /* Set a fixed height for the map view */
+            border: none;
+            display: block;
+        }
+
+        .cv-button-style {
+            padding: 10px 20px; /* Slightly larger padding */
+            background-color:  #ad480d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 30px; /* Add significant space above the button */
+            margin-bottom: 30px; /* Add space below the button */
+            transition: background-color 0.3s ease;
+            display: inline-block; 
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .cv-button-style:hover {
+            background-color: #ca4406; /* Slightly brighter on hover */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="nav-links-container">
+        <a href="academy.html" class="nav-link">Academy</a>
+        <a href="publications.html" class="nav-link">Publications</a>
+    </div>
+
+    <img src="/images/sun.png" alt="Profile Picture" class="profile-image"> 
+    <h1>Suney Toste</h1>
+    <p class="contact-email">
+        <a href="mailto:stoste@HillMetrics.com">stoste@HillMetrics.com</a>
+    </p>
+
+    <a href="/updated_CV.pdf" target="_blank" class="cv-button-style">
+        Short CV
+    </a>
+    
+    <a href="https://calendar.app.google/bQnSVgddazKX2MdU7" target="_blank" class="meeting-button-style">
+        Request a meeting
+    </a>
+
+
+    <h2 class="trajectory-header">Timeline</h2>
+
+    <ul class="trajectory-list">
+        <li>>>> Head of AI and Research (2025 - ) @HillMetrics.</li>
+        <li>>>> Postdoctoral researcher (2024 - 2025) @INRIA Paris under the supervision of <a href="https://sites.google.com/site/dianepeurichard/home">Diane Peurichard</a>.</li>
+        <li>>>> PhD studies (2020 - 2023) @ENS Ulm under the supervision of <a href="https://www.ibens.bio.ens.psl.eu/spip.php?rubrique103&lang=fr">Amaury Lambert</a>.</li>
+        <li>>>> Master 2 “Mathématiques et Modélisation” (2019 - 2020) @University Pierre Marie Curie.</li>
+        <li>>>> Master Degree “Differential Equations” (2017 - 2019) @University of Havana.</li>
+        <li>>>> Four years (2013 - 2017) of undergraduate studies in Mathematics at the Faculty of Mathematics and Computer Science of the University of Havana.</li>
+    </ul>
+
+    <h2 class="trajectory-header">Where to find me</h2>
+    <p class="trajectory-list" style="margin-top: 0; margin-bottom: 15px;">
+        HillMetrics<br>
+        3 Rue du Faubourg Saint Honoré, 75008 Paris
+    </p>
+    
+    <div class="map-container">
+        <iframe 
+            src="https://maps.google.com/maps?width=100%25&amp;height=350&amp;hl=en&amp;q=3%20Rue%20Faubourg%20Saint%20Honor%C3%A9,%2075008%20Paris&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    
+</body>
+</html>

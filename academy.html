@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My GitHub Website</title>
+    <meta charset="UTF-8">
+    
+    <style>
+        /* --- GENERAL BODY STYLING --- */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px; 
+            line-height: 1.6;
+            color: #FFFFFF;
+            
+            /* Background Image Styles */
+            background-image: url('/images/background.jpg'); 
+            background-repeat: no-repeat;
+            /* Using 'cover' is generally better than '100% 100%' to avoid stretching */
+            background-size: 100% 100%; 
+            background-position: center top; 
+            background-attachment: fixed; 
+            
+            /* FLEXBOX PROPERTIES */
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; 
+        }
+
+        /* --- TOP-RIGHT NAVIGATION BUTTONS STYLING --- */
+        .nav-links-container {
+            position: absolute; 
+            top: 20px; 
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-link {
+            padding: 8px 15px;
+            background-color: #ad480d; /* Button color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+            display: inline-block; 
+        }
+
+        /* Hover effect (mantaining the same color) */
+        .nav-link:hover {
+            background-color: #ca4406; /* Slightly brighter on hover */
+        }
+
+        .profile-image {
+            width: 200px; 
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover; 
+            border: 4px solid #ADD8E6; 
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
+            margin-top: 125px; 
+            margin-bottom: 20px;
+        }
+
+        /* --- MAIN CONTENT STYLING --- */
+        p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+        
+        .full-width-image {
+            display: none;
+        }
+
+        /* Email Link Style */
+        .contact-email a {
+            color: #df6f06; /* Salmon/orange color */
+            text-decoration: none; 
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            transition: color 0.3s ease; 
+        }
+
+        .contact-email a:hover {
+            color: #FFFFFF; 
+            text-decoration: underline; 
+        }
+
+        /* 🚀 NEW: STYLE FOR THE CENTERED MEETING BUTTON */
+        .meeting-button-style {
+            padding: 8px 15px;
+            background-color: #ad480d; /* Matching color with nav links */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px; /* Add space above the button */
+            transition: background-color 0.3s ease;
+            display: inline-block; /* Treat link as a button block */
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .meeting-button-style:hover {
+            background-color: #ca4406; /* Slightly brighter on hover */
+        }
+        .trajectory-list {
+            list-style-type: none; 
+            padding: 0;           
+            
+            /* Centering the block itself (margin auto), but text inside is left */
+            margin: 15px auto 25px auto; 
+            max-width: 700px;
+            
+            /* ✨ CHANGE: Align the list items' text to the left ✨ */
+            text-align: left; 
+            
+            font-size: 1.1em;
+            line-height: 1.7; 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .trajectory-list li {
+            margin-bottom: 5px; 
+            color: #F0F0F0;
+        }
+        .trajectory-header {
+            font-size: 1.5em;
+            color: #df6f06;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+            margin-top: 25px; 
+            margin-bottom: 10px; 
+            text-align: left; 
+            max-width: 700px;
+            width: 100%;
+        }
+        .trajectory-list a {
+            color: #f0aa29; /* The salmon/orange color of the email link */
+            text-decoration: none; /* No underline by default */
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            transition: color 0.3s ease;
+        }
+
+        .trajectory-list a:hover {
+            color: #FFFFFF; /* White on hover */
+            text-decoration: underline;
+        }
+
+        .map-container {
+            /* Ensures the map is centered by inheriting the max-width and margin auto */
+            max-width: 700px;
+            width: 90%; /* Use 90% of max-width to look good on smaller screens */
+            margin: 10px auto 40px auto; 
+            border: 2px solid #df6f06; /* Orange border matching your links */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 350px; /* Set a fixed height for the map view */
+            border: none;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="nav-links-container">
+        <a href="index.html" class="nav-link">About Me</a>
+    </div>
+    <div style="height: 50px;"></div>
+    <a href="publications.html" class="nav-link">Publications</a>
+
+    <p class="trajectory-list"> I was a PhD student at ENS Ulm under the supervision of <a href="https://www.ibens.bio.ens.psl.eu/spip.php?rubrique103&lang=fr">Amaury Lambert</a>.<br>
+        The manuscript is available at:
+            <a href="/PhD_Toste.pdf">"MFAT under different dynamics".</a>
+    </p>
+
+    <h3 class="trajectory-header">Teaching assistant</h3>
+    <ul class="trajectory-list">
+        <li>>>> 2024 - 2025: TD Fourier Analysis and Differential Equations for 2nd year of BSC. Informatics (lectures by Laurent Lazzarini and Sophie Chemla respectively), at Université Sorbonne Polytech.</li>
+        <li>>>> 2021 - 2022: TD Analysis 4 for 2nd year of BSC. Informatics (lectures by Olivier Glass) at University Paris-Dauphine.</li>
+        <li>>>> 2017 - 2019: TD Ordinary Differential Equations for 3rd year of BSc. Mathematic and 3rd year of BSc. Computer Science (lectures by Mariano Rodríguez Ricard) at University of Havana. </li>
+        <li>>>> 2016 - 2017: TD Linear and Non Linear Optimization for 3rd year of BSc. Computer Science (lectures by Aymée Marrero Severo) at University of Havana.</li>
+        <li>>>> 2014 - 2016: TD Calculus I for 1rst year of BSc. Pharmacy (lectures by Greter Domínguez Rodríguez) at University of Havana. </li>
+    </ul>
+    
+</body>
+</html>
